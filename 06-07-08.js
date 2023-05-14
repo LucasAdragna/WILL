@@ -11,8 +11,12 @@ function crearClasePersona() {
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
 
       // Tu código aca:
+      this.nombre= nombre;
+      this.edad= edad;
+      this.hobbies= hobbies;
+      amigos.amigos= amigos;
 
-    }
+    };
 
     addFriend(nombre, edad) {
       // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
@@ -20,16 +24,20 @@ function crearClasePersona() {
       // No debe retornar nada.
 
       // Tu código aca:
+      let amigo={nombre: nombre, edad: edad};
 
-    }
+      this.amigos.push(amigo);
+
+    };
 
     addHobby(hobby) {
       // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
       // No debe retornar nada.
 
       // Tu código aca:
+      this.hobbies.push(hobby);
 
-    }
+    };
     getFriends() {
       // El método 'getFriends' debe retornar un arreglo con sólo los nombres del arreglo de amigos
       // de la persona.
@@ -38,8 +46,13 @@ function crearClasePersona() {
       // persona.getFriends() debería devolver ['martin', 'toni']
 
       // Tu código aca:
+    let nombreAmigo=[];
 
+    for(let i = 0; i < this.amigos.length; i++) {
+         nombreAmigo.push(this.amigos[i].nombre)
     }
+    return arreglo;
+    };
 
     getHobbies() {
       // El método 'getHobbies' debe retornar un arreglo con los hobbies de la persona
@@ -47,8 +60,8 @@ function crearClasePersona() {
       // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
 
       // Tu código aca:
-
-    }
+         return this.hobbies;
+    };
 
     getPromedioEdad() {
       // El método 'getPromedioEdad' debe retornar el promedio de edad de los amigos de una persona
@@ -67,11 +80,19 @@ function crearClasePersona() {
 
       // Tu código aca:
 
+      let totalEdades=0;
+
+      for(let i = 0; i < this.amigos.length; i++) {
+        totalEdades = totalEdades + this.amigos[i].edad;
+        
+      }
+      return totalEdades / this.amigos.length;
+
     }
-  };
+  }
 
   return Persona;
-}
+};
 
 // No modifiques nada debajo de esta linea //
 
